@@ -52,7 +52,7 @@ echo 계속하려면 아무 키나 누르세요
 pause > nul
 
 echo [4/4] GitHub 저장소로 푸시 중...
-git push origin master:main
+git push origin main:main
 if %errorlevel% neq 0 (
     echo 오류: 푸시 실패! git push 문제
     echo 원인: 인터넷 연결, 권한 문제 또는 원격 저장소에 로컬에 없는 변경사항이 있을 수 있습니다.
