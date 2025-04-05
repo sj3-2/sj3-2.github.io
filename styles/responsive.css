@@ -1,0 +1,315 @@
+/* responsive.css - Mobile and responsive optimizations */
+
+/* XS Screens - Mobile phones in portrait mode */
+@media (max-width: 480px) {
+  html {
+    font-size: 15px; 
+  }
+  
+  h1 {
+    margin-bottom: var(--spacing-sm);
+    font-size: 1.6rem;
+    text-align: center;
+  }
+  
+  h2 {
+    font-size: 1.3rem;
+  }
+
+  h2::after {
+      display: none;
+  }
+  
+  section {
+    padding: var(--spacing-md);
+  }
+
+  #upcoming-assignments h2 {
+    margin-bottom: var(--spacing-md);
+    font-size: 1.2rem;
+    text-align: center;
+  }
+
+  /* Calendar view optimizations */
+  .calendar-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-sm);
+  }
+  
+  .calendar-header h2 {
+    margin-bottom: var(--spacing-sm);
+    font-size: 1.2rem;
+    text-align: center;
+  }
+  
+  .calendar-weekday {
+    padding: 4px 0;
+    font-size: 0.7rem;
+  }
+  
+  .calendar-day {
+    min-height: 60px;
+    padding: 2px;
+  }
+  
+  .day-number {
+    font-size: 0.7rem;
+  }
+  
+  .mini-assignment {
+    padding: 2px 4px;
+    overflow: hidden;
+    font-size: 0.65rem;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  
+  .mini-assignment::before {
+    width: 4px;
+    height: 4px;
+    margin-right: 3px;
+  }
+  
+  /* Assignment card adjustments */
+  .assignment-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: 150px;
+    height: auto; 
+    margin-bottom: var(--spacing-md);
+    padding: var(--spacing-md);
+    padding-bottom: 40px; 
+  }
+
+  .assignment-header {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: var(--spacing-xs);
+    gap: var(--spacing-xs);
+  }
+  
+  .assignment-title {
+    order: 1;
+    font-size: 1rem;
+  }
+
+  .assignment-meta {
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .assignment-description {
+    flex-grow: 1;
+    max-height: 3em; 
+    margin-bottom: 30px; 
+    font-size: 0.85rem;
+    -webkit-line-clamp: 2;
+  }
+
+  .date-container {
+    position: absolute;
+    bottom: var(--spacing-sm);
+    left: var(--spacing-md);
+    order: 2;
+  }
+  
+  .date-display {
+    display: inline-block;
+    margin-top: 4px;
+    padding: 1px 6px;
+    font-size: 0.8rem;
+  }
+  
+  .date-display strong {
+    margin-left: 4px;
+  }
+
+  .view-details-hint {
+    display: none; 
+  }
+  
+  .subject-tag-bottom {
+    position: absolute;
+    right: 8px;
+    bottom: 8px;
+  }
+  
+  .subject-tag {
+    padding: 2px 6px;
+    font-size: 0.7rem;
+  }
+  
+  /* Filter and navigation */
+  .nav-controls {
+    gap: var(--spacing-sm);
+  }
+  
+  .filter-container {
+    display: none;
+  }
+  
+  .search-container {
+    width: 100%;
+  }
+  
+  select, input[type="text"] {
+    padding: 0.6rem var(--spacing-sm);
+    font-size: 0.9rem;
+  }
+  
+  .view-toggle {
+    width: 100%;
+  }
+  
+  .view-toggle button {
+    flex: 1;
+    min-width: 0;
+    padding: var(--spacing-xs) var(--spacing-sm);
+  }
+  
+  /* Modal adjustments */
+  .modal-content {
+    width: 95%;
+    max-height: 90vh;
+    padding: var(--spacing-md);
+  }
+  
+  .modal-header h3 {
+    font-size: 1.3rem;
+  }
+  
+  .detailed-content {
+    font-size: 0.9rem;
+  }
+  
+  .close-modal {
+    top: 4px;
+    right: 4px;
+  }
+}
+
+/* SM Screens - Mobile phones in landscape and small tablets */
+@media (min-width: 481px) and (max-width: 767px) {
+  /* Calendar view optimizations */
+  .calendar-day {
+    min-height: 70px;
+  }
+  
+  .calendar-weekday {
+    font-size: 0.75rem;
+  }
+  
+  .mini-assignment {
+    font-size: 0.7rem;
+  }
+  
+  /* Filter and navigation */
+  .filter-search-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+  }
+  
+  .view-toggle button {
+    min-width: 90px;
+  }
+  
+  /* Assignment cards */
+  .assignment-card {
+    min-height: 200px;
+    height: auto;
+  }
+
+  select#subjectFilter {
+    display: none;
+  }
+
+  .filter-container {
+    display: none;
+  }
+
+  h2::after {
+    display: none;
+  }
+}
+
+/* Mobile view specific styles (applied via JS) */
+.mobile-view .assignment-card {
+  cursor: pointer;
+}
+
+.mobile-view #searchButton {
+  height: 100%;
+}
+
+.mobile-view .mini-assignments-container.scrollable {
+  max-height: 50px;
+}
+
+.mobile-view .calendar-weekday {
+  padding: 4px 2px;
+  font-size: 0.65rem;
+}
+
+.mobile-view .view-details-btn {
+  display: none; 
+}
+
+/* Touch-friendly adjustments for all screens */
+@media (pointer: coarse) {
+  .btn, button, select, .view-toggle button {
+    min-height: 44px; 
+  }
+  
+  .mini-assignment {
+    padding: 4px 6px;
+  }
+  
+  .calendar-day {
+    padding: var(--spacing-xs);
+  }
+  
+  .modal-body, .mini-assignments-container.scrollable {
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .assignment-card:hover,
+  .calendar-day:hover,
+  .mini-assignment:hover {
+    transform: none;
+  }
+  
+  .assignment-card:active,
+  .calendar-day:active,
+  .mini-assignment:active {
+    opacity: 0.7;
+    transition: opacity 0.1s;
+  }
+}
+
+/* Optimizations for both mobile and desktop */
+body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.list-view-grid {
+  gap: var(--spacing-md);
+}
+
+.modal-body {
+  scrollbar-width: thin;
+}
+
+.date-display strong {
+  display: inline-block;
+  margin-left: 4px;
+}
+
+.calendar-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}

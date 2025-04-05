@@ -1,0 +1,107 @@
+/* layout.css */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
+
+@media (min-width: 768px) {
+    .container {
+        padding: 0 var(--spacing-lg);
+    }
+}
+
+@media (min-width: 992px) {
+    .container {
+        padding: 0 var(--spacing-xl);
+    }
+}
+
+header {
+    background: linear-gradient(135deg, #1e1449 0%, #1c133a 100%);
+    color: white;
+    padding: var(--spacing-lg) 0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+header h1 {
+    margin-bottom: var(--spacing-md);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    color: #fff;
+    text-align: center;
+    position: relative;
+    display: inline-block;
+}
+
+@media (min-width: 768px) {
+    header h1 {
+        text-align: left;
+    }
+}
+
+.nav-controls {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    position: relative;
+    z-index: 5;
+}
+
+@media (min-width: 992px) {
+    .nav-controls {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+.filter-search-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    flex-grow: 1;
+}
+
+@media (min-width: 576px) {
+    .filter-search-container {
+        flex-direction: row;
+        gap: var(--spacing-md);
+    }
+}
+
+main {
+    padding: var(--spacing-lg) 0 var(--spacing-xl);
+    flex: 1;
+}
+
+section {
+    margin-bottom: var(--spacing-xl);
+    background-color: var(--surface-color);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border-color);
+    backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
+}
+
+section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+}
+
+@media (min-width: 768px) {
+    section {
+        padding: var(--spacing-xl);
+    }
+}

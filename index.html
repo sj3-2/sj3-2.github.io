@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="description" content="3학년 2반 과제 알리미 - 쉽게 과제를 관리하세요">
+    <title>3학년 2반 과제 알리미</title>
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/layout.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <link rel="stylesheet" href="styles/views.css">
+    <link rel="stylesheet" href="styles/utilities.css">
+    <link rel="stylesheet" href="styles/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="scripts/utils/contentFormatter.js" defer></script>
+    <script src="scripts/registry.js" defer></script>
+    <script src="scripts/subjects.js" defer></script>
+    <script src="scripts/assignments.js" defer></script>
+    <script src="scripts/main.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>📋 3학년 2반 과제 알리미 - beta</h1>
+            <nav class="nav-controls">
+                <div class="filter-search-container">
+                    <div class="filter-container">
+                        <label for="subjectFilter" class="sr-only">Filter by subject</label>
+                        <select id="subjectFilter" aria-label="Filter by subject">
+                            <option value="all">모든 과목</option>
+                        </select>
+                    </div>
+                    <div class="search-container">
+                         <label for="searchInput" class="sr-only">Search assignments</label>
+                        <input type="text" id="searchInput" placeholder="수행평가 검색..." aria-label="Search assignments">
+                        <button id="searchButton" class="btn btn-icon" aria-label="Search"><i class="fas fa-search"></i></button>
+                    </div>
+                </div>
+                <div class="view-toggle">
+                    <button id="listViewBtn" class="btn btn-view active" aria-pressed="true"><i class="fas fa-list"></i> 목록</button>
+                    <button id="calendarViewBtn" class="btn btn-view" aria-pressed="false"><i class="fas fa-calendar-alt"></i> 캘린더</button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <section id="upcoming-assignments">
+                <h2>수행평가 목록</h2>
+                <div id="assignment-container" class="list-view-grid">
+                    <p class="no-assignments hidden">다가오는 수행평가가 없습니다.</p>
+                </div>
+            </section>
+
+            <section id="calendar-view" class="hidden">
+                <div id="calendar-container">
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <div id="assignment-detail-modal" class="modal hidden">
+        <div class="modal-content">
+            <button class="close-modal btn btn-icon" aria-label="Close details">×</button>
+            <div class="modal-header">
+                <h3 id="modal-title">Assignment Title</h3>
+                <div class="modal-meta">
+                    <span id="modal-subject" class="subject-tag">Subject</span>
+                    <span id="modal-date" class="date-display">Date</span>
+                    <!-- 중요도 부분 제거됨 -->
+                </div>
+            </div>
+            <div class="modal-body">
+                <div id="modal-content" class="detailed-content">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="loading-overlay" class="loading-overlay hidden">
+      <div class="loading-spinner"></div>
+      <p>로딩 중...</p>
+    </div>
+
+    <div id="notification-area"></div>
+
+    <script>
+        if ("fonts" in document) {
+            Promise.all([
+                document.fonts.load("400 1rem Inter"),
+                document.fonts.load("500 1rem Inter"),
+                document.fonts.load("600 1rem Inter"),
+                document.fonts.load("700 1rem Inter")
+            ]).then(() => document.documentElement.classList.add("fonts-loaded"));
+        }
+    </script>
+</body>
+</html>
