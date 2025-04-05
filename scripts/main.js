@@ -248,23 +248,33 @@ document.addEventListener('DOMContentLoaded', () => {
             description.className = 'assignment-description';
             const fullDesc = assignment.description || '';
             
-            // 제목을 추출하여 표시 (보통 첫 번째 줄이나 대괄호 안에 있는 내용)
-            let titleMatch = fullDesc.match(/\[([^\]]+)\]|^([^\n]+)/);
+            // 소개 부분 (첫 두 문장) 추출
             let previewText = '';
             
-            if (titleMatch) {
-                previewText = titleMatch[0];
+            if (fullDesc.includes('\n\n')) {
+                // 첫 번째 빈 줄까지의 모든 텍스트를 가져옴 (소개 부분)
+                previewText = fullDesc.split('\n\n')[0];
+                
                 // 첫 문장이 너무 길면 잘라서 표시
-                if (previewText.length > 100) {
-                    previewText = previewText.substring(0, 100) + '...';
+                if (previewText.length > 120) {
+                    previewText = previewText.substring(0, 120) + '...';
+                }
+            } else if (fullDesc.match(/\[([^\]]+)\]/)) {
+                // 빈 줄이 없지만 대괄호 형식이 있는 경우 (이전 포맷 지원)
+                let titleMatch = fullDesc.match(/\[([^\]]+)\]|^([^\n]+)/);
+                if (titleMatch) {
+                    previewText = titleMatch[0];
+                    if (previewText.length > 100) {
+                        previewText = previewText.substring(0, 100) + '...';
+                    }
                 }
             } else {
-                // 줄바꿈 문자를 공백으로 변환하고 글자 수로 제한
+                // 빈 줄이나 대괄호 형식이 없는 경우, 줄바꿈 문자를 공백으로 변환
                 const plainText = fullDesc.replace(/\n+/g, ' ').trim();
                 previewText = plainText.length > 120 ? plainText.substring(0, 120) + '...' : plainText;
             }
             
-            description.textContent = previewText;
+            description.innerHTML = previewText.replace(/\n/g, '<br>');
              if (!fullDesc) {
                  description.textContent = '상세 설명이 없습니다.';
                  description.style.fontStyle = 'italic';
