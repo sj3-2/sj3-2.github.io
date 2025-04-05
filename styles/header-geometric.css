@@ -74,49 +74,30 @@
   z-index: 5;
 }
 
-/* Animation for triangles */
-@keyframes float {
-  0% { transform: translateY(0) rotate(var(--rotation)); }
-  50% { transform: translateY(-15px) rotate(var(--rotation)); }
-  100% { transform: translateY(0) rotate(var(--rotation)); }
-}
-
-/* Apply subtle animation to triangles */
+/* Triangle fixed positions - no animation */
 .triangle-1 {
-  --rotation: 25deg;
-  animation: float 14s infinite ease-in-out;
+  transform: rotate(25deg);
 }
 
 .triangle-2 {
-  --rotation: -15deg;
-  animation: float 16s infinite ease-in-out reverse;
+  transform: rotate(-15deg);
 }
 
 .triangle-3 {
-  --rotation: 5deg;
-  animation: float 15s infinite ease-in-out;
+  transform: rotate(5deg);
 }
 
 .triangle-4 {
-  --rotation: 160deg;
-  animation: float 17s infinite ease-in-out;
+  transform: rotate(160deg);
 }
 
 .triangle-5 {
-  --rotation: 130deg;
-  animation: float 13s infinite ease-in-out reverse;
+  transform: rotate(130deg);
 }
 
-/* Responsive adjustments */
+/* Responsive adjustments - Hide triangles on mobile */
 @media (max-width: 768px) {
-  .triangle-1, .triangle-2, .triangle-3, .triangle-4, .triangle-5 {
-    transform-origin: center;
-    scale: 0.7;
-  }
-}
-
-@media (max-width: 480px) {
-  .triangle-1, .triangle-2, .triangle-3, .triangle-4, .triangle-5 {
-    scale: 0.5;
+  .header-triangle {
+    display: none;
   }
 }
