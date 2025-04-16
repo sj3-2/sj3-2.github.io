@@ -1,0 +1,5 @@
+AssignmentRegistry.register({
+    title: "데과 - 코랩 그래프 수행평가",
+    description: "5월 7일 데이터과학 수행평가 준비하기.\n4월 16일까지 배운 코랩 그래프 그리기 코드 복습하기.\n\n[ 수행평가 정보 ]\n- 평가일: 5월 7일(수요일)\n- 준비기한: 4월 16일까지 배운 내용\n- 평가도구: Google Colab\n- 평가내용: 데이터 처리 및 시각화\n\n[ 학습 내용 ]\n- pandas 라이브러리: 데이터프레임 생성 및 조작\n- numpy 라이브러리: 배열 생성 및 수학 함수\n- matplotlib: 다양한 그래프 시각화 도구\n- seaborn: 통계 시각화 라이브러리\n- scipy: 통계 분석 도구\n\n[ 주요 코드 예시 ]\n- import pandas as pd  # 데이터 분석 라이브러리 불러오기\n- import numpy as np  # 수치 계산 라이브러리 불러오기\n- import matplotlib.pyplot as plt  # 그래프 그리기 라이브러리 불러오기\n- df = pd.read_csv('파일명.csv')  # CSV 파일을 데이터프레임으로 읽어오기\n- plt.scatter(x, y)  # 산점도: 두 변수 간의 관계를 점으로 표현\n- plt.bar(x, y)  # 막대그래프: 범주별 값을 막대로 표현\n- plt.hist(x)  # 히스토그램: 데이터 분포를 구간별로 표현\n- plt.pie(size, labels=label)  # 파이차트: 전체 중 부분의 비율을 원형으로 표현",
+    dueDate: "2025-05-07"
+});
